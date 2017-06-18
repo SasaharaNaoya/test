@@ -18,7 +18,6 @@ class Euler_problem5
 	 		break
 	 	end
 	 	count += 1
-	 	p count
 	}
 	p ans
 end
