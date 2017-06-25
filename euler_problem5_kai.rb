@@ -9,9 +9,10 @@ class Euler_problem5_kai
 	end
 
 	def self.gcd(x,y)
-		while !(y > 0) do
+		while (y > 0) do
+			prev_y = y
 			y = x % y
-			x = y
+			x = prev_y
 		end
 		return x
 	end
