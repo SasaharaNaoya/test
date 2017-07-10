@@ -1,15 +1,12 @@
-
-
 def shortest_route(num)
 
 	route_length = num * 2
-	molecule = 1
-	denominator = 1
-	(1..route_length).each do |a|
-		molecule = molecule * (route_length - (a-1))
-		denominator = denominator * a
+	answer = 1
+	while route_length > num
+		answer = answer * (route_length.to_f / (route_length - num).to_f)
+		route_length = route_length - 1
 	end
-	return molecule / denominator
+	return answer.to_i
 end
 
-puts shortest_route(3)
+puts shortest_route(20)
