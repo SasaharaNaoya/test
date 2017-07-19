@@ -14,7 +14,7 @@ end
 # 10~19
 def tens_place(limit)
 	result = 0
-	[].each do |num| #fixme
+	[3,6,6,8,8,7,7,9,8,8].each do |num|
 		if i != limit-1 #fixme
 			result = num
 		else
@@ -45,7 +45,8 @@ def thousands_place
 end
 
 def distinguish(num)
-	if num 
+	if num < 10 #fixme
+
 end
 
 p distinguish(5)
