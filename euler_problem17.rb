@@ -15,22 +15,30 @@ end
 
 # 10~19
 def tens_place(limit)
+	ones_place_num = limit % 10
 	result = 0
 	i = 0
 	[3,6,6,8,8,7,7,9,8,8].each do |num|
-		if i != limit+1 #fixme
+		if i != ones_place_num+1 #fixme
 			result += num
 			i += 1
 		else
 			break
 		end
 	end
-	return result
+	return result += ones_place(9)
 end
 
 # 20~99
 def twelve_ninetynine(limit)
-	[6,6,5,5,5,7,6,6]
+	(limit - limit % 10) / 10
+	result = 0
+	i = 0
+	[6,6,5,5,5,7,6,6].each do |num|
+
+	end
+	return result += tens_place(19)
+end
 
 # 100~999  (hundred and)で10文字
 def hundreds_place(limit)
@@ -44,23 +52,24 @@ def hundreds_place(limit)
 			break
 		end
 	end
-	return result
+	return result += twelve_ninetynine(99)
 end
 
 # 1000~9999
-def thousands_place
+# def 
 
-end
+# end
 
 def distinguish(num)
-	ones_place_num = num % 10 
 	if num < 10 
 		return ones_place(num)
 	elsif num < 20
-		return tens_place(ones_place_num) + 36
+		return tens_place(num)
+	elsif num <100
+		return twelve_ninetynine(num)
 	elsif num < 1000
 		return hundreds_place(num)
 	end
 end
 
-p distinguish(19)
+p distinguish(12)
