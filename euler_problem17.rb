@@ -19,7 +19,7 @@ def tens_place(limit)
 	result = 0
 	i = 0
 	[3,6,6,8,8,7,7,9,8,8].each do |num|
-		if i != ones_place_num+1 #fixme
+		if i != ones_place_num+1
 			result += num
 			i += 1
 		else
@@ -31,11 +31,15 @@ end
 
 # 20~99
 def twelve_ninetynine(limit)
-	(limit - limit % 10) / 10
+	a = (limit - limit % 10) / 10
 	result = 0
-	i = 0
+	i = 2
 	[6,6,5,5,5,7,6,6].each do |num|
-
+		result += num
+		if i == a
+			break
+		end
+		i += 1
 	end
 	return result += tens_place(19)
 end
@@ -72,4 +76,4 @@ def distinguish(num)
 	end
 end
 
-p distinguish(12)
+p distinguish(98)
