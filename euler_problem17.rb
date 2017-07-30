@@ -32,16 +32,19 @@ end
 # 20~99
 def twelve_ninetynine(limit)
 	a = (limit - limit % 10) / 10
-	result = 0
+	b = limit % 10
+	result = tens_place(19)
 	i = 2
 	[6,6,5,5,5,7,6,6].each do |num|
-		result += num
 		if i == a
+			result += num * b + ones_place(b)
 			break
-		end
-		i += 1
+		else
+			result += num * 10 + ones_place(9)
+			i += 1
+		end		
 	end
-	return result += tens_place(19)
+	return result 
 end
 
 # 100~999  (hundred and)で10文字
@@ -69,11 +72,11 @@ def distinguish(num)
 		return ones_place(num)
 	elsif num < 20
 		return tens_place(num)
-	elsif num <100
+	elsif num < 100
 		return twelve_ninetynine(num)
 	elsif num < 1000
 		return hundreds_place(num)
 	end
 end
 
-p distinguish(98)
+p distinguish(100)
