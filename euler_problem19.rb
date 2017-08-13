@@ -23,4 +23,22 @@ def getdays(month)
 	end
 end
 
+def nextdate(date,mouth,year)
+
+	
+end
+def nextmonth(month,year)
+
+end
+
+def main
+	start_year = 1900
+	end_year = 2000
+	date = [1,1,1900]
+	ans = 0
+
+	while
+end
+
+
 p getdays('12')
